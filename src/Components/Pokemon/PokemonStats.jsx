@@ -2,7 +2,6 @@ import React from 'react';
 import Progress from '../Progress';
 
 const PokemonStats = ({ data }) => {
-  console.log(data);
   return (
     <div>
       {data.map((stat) => (

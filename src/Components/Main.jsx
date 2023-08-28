@@ -1,20 +1,17 @@
 import React from 'react';
 import { Context } from '../Context';
-import PokemonPicture from './Pokemon/PokemonPicture';
-import PokemonType from './Pokemon/PokemonType';
-import PokemonStats from './Pokemon/PokemonStats';
 import PokemonFeed from './Pokemon/PokemonFeed';
+import PokemonProfile from './Pokemon/PokemonProfile';
 
 const Main = () => {
   const { pokemon, loading } = React.useContext(Context);
+  if (pokemon) console.log(pokemon.types.map((obj) => obj.type.name));
   if (loading) return <div>Carregando...</div>;
   return (
     <section>
       {pokemon ? (
         <div>
-          <PokemonPicture data={pokemon.sprites} />
-          <PokemonType data={pokemon.types.map((obj) => obj.type.name)} />
-          <PokemonStats data={pokemon.stats} />
+          <PokemonProfile pokemon={pokemon} />
         </div>
       ) : (
         <PokemonFeed />

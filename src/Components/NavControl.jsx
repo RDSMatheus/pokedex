@@ -1,14 +1,19 @@
 import React from 'react';
+import styles from './NavControl.module.css';
 
 const NavControl = ({ setValue, value }) => {
   return (
-    <div>
+    <div className={styles.container}>
       {value > 10 ? (
-        <button onClick={() => setValue(value - 20)}>Anterior</button>
+        <button
+          className={styles.voltar}
+          onClick={() => setValue(value - 20)}
+        ></button>
       ) : (
-        <button disabled>Anterior</button>
+        <div></div>
       )}
-      <button onClick={() => setValue(value + 20)}>Próximo</button>
+      <button className={styles.avancar} onClick={() => setValue(value + 20)}>
+      </button>
     </div>
   );
 };

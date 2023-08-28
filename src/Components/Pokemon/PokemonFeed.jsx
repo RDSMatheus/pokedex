@@ -27,7 +27,7 @@ const PokemonFeed = () => {
               <li key={name} className={`${styles.feedItem} animeLeft`}>
                 <span className="title">{name}</span>
                 {pokemonInfo && pokemonInfo.length > 0 && (
-                  <PokemonType data={pokemonInfo[index]} />
+                  <PokemonType data={pokemonInfo[index].types} />
                 )}
                 {<img src={pokemonPic[index]} alt={name} />}
               </li>

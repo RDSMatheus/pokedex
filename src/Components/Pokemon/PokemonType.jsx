@@ -44,7 +44,7 @@ const PokemonType = (props) => {
   console.log(props);
   return (
     <section className={styles.typesWrapper}>
-      {props.data.types.map((type, index) => (
+      {props.data.map((type, index) => (
         <div
           key={type}
           className={styles.types}

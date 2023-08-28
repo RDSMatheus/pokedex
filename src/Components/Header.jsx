@@ -4,6 +4,7 @@ import { Context } from '../Context';
 import styles from './Header.module.css';
 import { ReactComponent as PokeBall } from '../Assets/pokeball.svg';
 import { ReactComponent as Search } from '../Assets/search.svg';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [value, setValue] = React.useState('');
@@ -14,9 +15,11 @@ const Header = () => {
     getPokemon(value);
   }
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} container`}>
       <div>
-        <PokeBall />
+        <NavLink to="/">
+          <PokeBall />
+        </NavLink>
       </div>
       <form className={styles.search} onSubmit={handleSubmit}>
         <Input
