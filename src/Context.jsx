@@ -15,7 +15,7 @@ export const GlobalContext = ({ children }) => {
   }, []);
 
   async function getPokemon(id) {
-    const { url, options } = POKEMON_GET(id);
+    const { url, options } = POKEMON_GET(id.toLowerCase());
     try {
       setLoading(true);
       const response = await fetch(url, options);

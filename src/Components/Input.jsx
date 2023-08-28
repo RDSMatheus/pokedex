@@ -6,7 +6,7 @@ const Input = ({ id, placeholder, value, setValue }) => {
   return (
     <label htmlFor={id}>
       <input
-      className={styles.input}
+        className={styles.input}
         id={id}
         type="text"
         placeholder={placeholder}
