@@ -1,0 +1,14 @@
+.typesWrapper{
+  display: flex;
+  gap: 1rem;
+}
+
+.types{
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.svgContainer{
+  width: 24px;
+  height: 24px;
+}

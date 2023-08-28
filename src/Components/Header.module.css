@@ -1,0 +1,17 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search{
+  display: flex;
+  align-items: center;
+}
+
+.search button{
+  border: none;
+  background: none;
+  padding: 24px;
+  cursor: pointer;
+}
