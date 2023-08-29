@@ -3,6 +3,7 @@ import { Context } from '../../Context';
 import PokemonType from './PokemonType';
 import styles from './PokemonFeed.module.css';
 import NavControl from '../NavControl';
+import { Link } from 'react-router-dom';
 
 const PokemonFeed = () => {
   const [page, setPage] = React.useState(0);
@@ -25,11 +26,19 @@ const PokemonFeed = () => {
             pokemonInfo &&
             pokemonList.map(({ name }, index) => (
               <li key={name} className={`${styles.feedItem} animeLeft`}>
-                <span className="title">{name}</span>
-                {pokemonInfo && pokemonInfo.length > 0 && (
-                  <PokemonType data={pokemonInfo[index].types} />
-                )}
-                {<img src={pokemonPic[index]} alt={name} />}
+                <Link to={`profile/${name}`}>
+                  <span className="title">{name}</span>
+                  {pokemonInfo && pokemonInfo.length > 0 && (
+                    <PokemonType data={pokemonInfo[index].types} />
+                  )}
+                  {
+                    <img
+                      onLoad={() => console.log('olá')}
+                      src={pokemonPic[index]}
+                      alt={name}
+                    />
+                  }
+                </Link>
               </li>
             ))}
         </ul>

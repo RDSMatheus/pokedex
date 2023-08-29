@@ -2,22 +2,27 @@ import React from 'react';
 import { Context } from '../Context';
 import PokemonFeed from './Pokemon/PokemonFeed';
 import PokemonProfile from './Pokemon/PokemonProfile';
+import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const { pokemon, loading } = React.useContext(Context);
-  if (pokemon) console.log(pokemon.types.map((obj) => obj.type.name));
+  const { id } = useParams();
+
   if (loading) return <div>Carregando...</div>;
-  return (
-    <section>
-      {pokemon ? (
+  if (id && pokemon)
+    return (
+      <section>
         <div>
           <PokemonProfile pokemon={pokemon} />
         </div>
-      ) : (
+      </section>
+    );
+  else
+    return (
+      <section>
         <PokemonFeed />
-      )}
-    </section>
-  );
+      </section>
+    );
 };
 
 export default Main;

@@ -4,15 +4,17 @@ import { Context } from '../Context';
 import styles from './Header.module.css';
 import { ReactComponent as PokeBall } from '../Assets/pokeball.svg';
 import { ReactComponent as Search } from '../Assets/search.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [value, setValue] = React.useState('');
   const { pokemon, getPokemon } = React.useContext(Context);
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
     getPokemon(value);
+    navigate(`/profile/${value.toLowerCase()}`);
   }
   return (
     <header className={`${styles.header} container`}>
