@@ -27,6 +27,14 @@ export const POKEMON_GET_ALL = (limit, offset) => {
     },
   };
 };
+export const POKEMON_GET_COUNT = () => {
+  return {
+    url: ` https://pokeapi.co/api/v2/pokemon`,
+    options: {
+      method: 'GET',
+    },
+  };
+};
 
 export const POKEMON_PIC = (name) => {
   return {

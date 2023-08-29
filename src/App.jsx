@@ -5,6 +5,7 @@ import Main from './Components/Main';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GlobalContext } from './Context';
 import PokemonProfile from './Components/Pokemon/PokemonProfile';
+import Footer from './Components/Footer';
 
 const App = () => {
   return (
@@ -14,11 +15,9 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route
-              path="profile/:id"
-              element={<PokemonProfile />}
-            />
+            <Route path="profile/:id" element={<PokemonProfile />} />
           </Routes>
+          <Footer />
         </GlobalContext>
       </BrowserRouter>
     </div>

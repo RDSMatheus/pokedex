@@ -1,0 +1,12 @@
+.footerBg{
+  background-color: #eee;
+  padding: 2rem;
+}
+
+.footer{
+  font-family: var(--font-1);
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}

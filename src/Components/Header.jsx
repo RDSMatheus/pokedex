@@ -14,26 +14,29 @@ const Header = () => {
   function handleSubmit(event) {
     event.preventDefault();
     getPokemon(value);
+    setValue('');
     navigate(`/profile/${value.toLowerCase()}`);
   }
   return (
-    <header className={`${styles.header} container`}>
-      <div>
-        <NavLink to="/">
-          <PokeBall />
-        </NavLink>
+    <header className={styles.headerBg}>
+      <div className={`${styles.header} container`}>
+        <div>
+          <NavLink to="/">
+            <PokeBall />
+          </NavLink>
+        </div>
+        <form className={styles.search} onSubmit={handleSubmit}>
+          <Input
+            id="pokemon"
+            placeholder="Procure o seu pokemon"
+            value={value}
+            setValue={setValue}
+          />
+          <button>
+            <Search />
+          </button>
+        </form>
       </div>
-      <form className={styles.search} onSubmit={handleSubmit}>
-        <Input
-          id="pokemon"
-          placeholder="Procure o seu pokemon"
-          value={value}
-          setValue={setValue}
-        />
-        <button>
-          <Search />
-        </button>
-      </form>
     </header>
   );
 };

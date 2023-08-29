@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Spectral:wght@700&display=swap');
 
+:root{
+  --font-1:  'Press Start 2P', cursive
+}
+
 *{
   list-style: none;
   margin: 0;
@@ -20,7 +24,7 @@ img{
 .title{
   margin-bottom: 1rem;
   text-transform: capitalize;
-  font-family: 'Press Start 2P', cursive;
+  font-family: var(--font-1);
 }
 
 .container{

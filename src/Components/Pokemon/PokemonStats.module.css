@@ -1,0 +1,7 @@
+.stats{
+  display: grid;
+  grid-template-columns: 135px 1fr;
+  align-items: center;
+  font-family: var(--font-1);
+  font-size: .85rem;
+}
