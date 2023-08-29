@@ -8,13 +8,16 @@ import PokemonProfile from './Components/Pokemon/PokemonProfile';
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <BrowserRouter>
         <GlobalContext>
           <Header />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="profile/:id" element={<PokemonProfile />} />
+            <Route
+              path="profile/:id"
+              element={<PokemonProfile />}
+            />
           </Routes>
         </GlobalContext>
       </BrowserRouter>

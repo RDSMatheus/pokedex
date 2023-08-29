@@ -19,7 +19,7 @@ const PokemonFeed = () => {
 
   if (pokemonInfo && pokemonInfo.length > 0)
     return (
-      <div>
+      <section className="container">
         <ul className={`${styles.feed} animeLeft`}>
           {pokemonList &&
             pokemonPic &&
@@ -43,7 +43,7 @@ const PokemonFeed = () => {
             ))}
         </ul>
         <NavControl setValue={setPage} value={page} />
-      </div>
+      </section>
     );
   else return null;
 };

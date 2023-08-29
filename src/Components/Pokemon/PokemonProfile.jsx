@@ -7,8 +7,9 @@ import styles from './PokemonProfile.module.css';
 import { useParams } from 'react-router-dom';
 
 const PokemonProfile = () => {
-  const { pokemon, loading, getPokemon } = React.useContext(Context);
+  const { pokemon, loading, getPokemon, TypeSvg } = React.useContext(Context);
   const { id } = useParams();
+  console.log(pokemon);
 
   React.useEffect(() => {
     if (id) {
@@ -19,13 +20,19 @@ const PokemonProfile = () => {
   if (loading) <div>Carregando...</div>;
   if (pokemon)
     return (
-      <section className={styles.wrapper}>
-        <div className={styles.row}>
-          <PokemonPicture data={pokemon.sprites} />
-        </div>
-        <div>
-          <PokemonType data={pokemon.types.map((obj) => obj.type.name)} />
-          <PokemonStats data={pokemon.stats} />
+      <section
+        style={{ background: `${TypeSvg[pokemon.types[0].type.name].color}` }}
+      >
+        <div className={`${styles.wrapper} container`}>
+          <div className={styles.row}>
+            <PokemonPicture data={pokemon.sprites} />
+          </div>
+          <div className={styles.statsBackground}>
+            <div className={styles.stats}>
+              <PokemonType data={pokemon.types.map((obj) => obj.type.name)} />
+              <PokemonStats data={pokemon.stats} />
+            </div>
+          </div>
         </div>
       </section>
     );
