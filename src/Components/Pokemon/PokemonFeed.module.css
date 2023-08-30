@@ -1,7 +1,6 @@
 .feed{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  
 }
 
 .feedItem a{
@@ -19,6 +18,15 @@
 .feedItem a:is(:hover, :focus){
   box-shadow: 0 0 4px #FF9B00;
   scale: 1.1;
+}
+
+@media (max-width: 900px) {
+  .feed{
+    grid-template-columns: 1fr 1fr;
+  }
+  .feedItem{
+    margin: .5rem;
+  }
 }
 
 @media (max-width: 600px) {

@@ -22,11 +22,15 @@ const PokemonProfile = () => {
   if (pokemon)
     return (
       <>
-      <Head title={pokemon.name}  />
+        <Head title={pokemon.name} />
         <section
           style={{ background: `${TypeSvg[pokemon.types[0].type.name].color}` }}
         >
           <div className={`${styles.wrapper} container`}>
+            <h1 className={styles.title}>
+              {`#${pokemon.id} 
+              ${pokemon.name}`}
+            </h1>
             <div className={styles.row}>
               <PokemonPicture data={pokemon.sprites} />
             </div>
