@@ -1,0 +1,12 @@
+.loading{
+  animation: rotate .3s infinite;
+}
+
+@keyframes rotate {
+  from{
+    transform: rotate(5deg);
+  }
+  to{
+    transform: rotate(355deg);
+  }
+}

@@ -99,7 +99,7 @@ export const GlobalContext = ({ children }) => {
           const { url, options } = POKEMON_GET(pokemon.name);
           const response = await fetch(url, options);
           const json = await response.json();
-
+          console.log(json);
           const types = json.types.map((typeInfo) => typeInfo.type.name);
 
           return {

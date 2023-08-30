@@ -5,6 +5,7 @@ import styles from './PokemonFeed.module.css';
 import NavControl from '../NavControl';
 import { Link } from 'react-router-dom';
 import Head from '../Head';
+import PokemonLazyImg from './PokemonLazyImg';
 
 const PokemonFeed = () => {
   const [page, setPage] = React.useState(0);
@@ -33,13 +34,7 @@ const PokemonFeed = () => {
                   {pokemonInfo.length && pokemonInfo.length > 0 && (
                     <PokemonType data={pokemonInfo[index].types} />
                   )}
-                  {pokemonInfo.length > 0 && (
-                    <img
-                      src={pokemonInfo[index].url}
-                      alt={name}
-                      loading="lazy"
-                    />
-                  )}
+                  {pokemonInfo.length > 0 && <PokemonLazyImg name={name} />}
                 </Link>
               </li>
             ))}
