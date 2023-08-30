@@ -18,7 +18,7 @@ const NavControl = ({ setValue, value }) => {
 
   return (
     <div className={styles.container}>
-      {value > 1 ? (
+      {value > 0 ? (
         <button
           className={styles.voltar}
           onClick={() => {

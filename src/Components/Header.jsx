@@ -17,6 +17,7 @@ const Header = () => {
     setValue('');
     navigate(`/profile/${value.toLowerCase()}`);
   }
+
   return (
     <header className={styles.headerBg}>
       <div className={`${styles.header} container`}>

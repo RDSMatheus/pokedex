@@ -5,6 +5,7 @@ import Loading from '../Loading';
 const PokemonLazyImg = ({ name }) => {
   const { pokemonInfo } = React.useContext(Context);
   const [imageUrl, setImageUrl] = React.useState(null);
+  const [skeleton, setSkeleton] = React.useState(true);
 
   React.useEffect(() => {
     async function fetchImageUrl() {
@@ -16,11 +17,15 @@ const PokemonLazyImg = ({ name }) => {
     fetchImageUrl();
   }, [pokemonInfo, name]);
 
-  if (imageUrl) {
-    return <img src={imageUrl} alt={name} loading="lazy" />;
-  } else {
-    return <Loading />;
+  function handleLoad() {
+    setSkeleton(false);
+    console.log('ola');
   }
+  return imageUrl ? (
+    <img src={imageUrl} alt={name} onLoad={handleLoad} />
+  ) : (
+    <Loading />
+  );
 };
 
 export default PokemonLazyImg;

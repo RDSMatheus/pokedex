@@ -5,10 +5,10 @@ import PokemonProfile from './Pokemon/PokemonProfile';
 import { useParams } from 'react-router-dom';
 
 const Main = () => {
-  const { pokemon, loading } = React.useContext(Context);
+  const { pokemon } = React.useContext(Context);
   const { id } = useParams();
 
-  if (loading) return <div>Carregando...</div>;
+  
   if (id && pokemon)
     return (
       <section>

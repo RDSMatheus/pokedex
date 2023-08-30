@@ -6,6 +6,7 @@ import NavControl from '../NavControl';
 import { Link } from 'react-router-dom';
 import Head from '../Head';
 import PokemonLazyImg from './PokemonLazyImg';
+import Loading from '../Loading';
 
 const PokemonFeed = () => {
   const [page, setPage] = React.useState(0);
@@ -15,12 +16,16 @@ const PokemonFeed = () => {
   React.useEffect(() => {
     async function fetchPokemonNames() {
       await getPokemonList(page * 20);
-      console.log(pokemonList);
     }
     fetchPokemonNames();
   }, [page]);
 
-  if (loading) return <div>Carregando...</div>;
+  if (loading)
+    return (
+      <div className="loadingContainer">
+        <Loading />
+      </div>
+    );
   if (pokemonInfo.length > 0 && pokemonList.length > 0)
     return (
       <>

@@ -32,6 +32,13 @@ img{
   margin: 0 auto;
 }
 
+.loadingContainer{
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 4rem);
+  background-color: rgba(0, 0, 0, .2);
+}
+
 .animeLeft{
   animation: animeLeft .3s forwards;
 }

@@ -6,11 +6,11 @@ import { Context } from '../../Context';
 import styles from './PokemonProfile.module.css';
 import { useParams } from 'react-router-dom';
 import Head from '../Head';
+import Loading from '../Loading';
 
 const PokemonProfile = () => {
   const { pokemon, loading, getPokemon, TypeSvg } = React.useContext(Context);
   const { id } = useParams();
-  console.log(pokemon);
 
   React.useEffect(() => {
     if (id) {
@@ -18,7 +18,12 @@ const PokemonProfile = () => {
     }
   }, [id]);
 
-  if (loading) <div>Carregando...</div>;
+  if (loading)
+    return (
+      <div className="loadingContainer">
+        <Loading />
+      </div>
+    );
   if (pokemon)
     return (
       <>

@@ -56,14 +56,11 @@ export const GlobalContext = ({ children }) => {
   async function getPokemon(id) {
     const { url, options } = POKEMON_GET(id.toLowerCase());
     try {
-      setLoading(true);
       const response = await fetch(url, options);
       const json = await response.json();
       setPokemon(json);
     } catch (error) {
       console.log('Fetch Error:', error);
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -76,6 +73,7 @@ export const GlobalContext = ({ children }) => {
 
       const obtainedPokemonPics = await Promise.all(
         json.results.map(async (pokemonName) => {
+          setLoading(true);
           const { url, options } = POKEMON_PIC(pokemonName.name);
           const response = await fetch(url, options);
           const json = await response.json();
@@ -99,7 +97,7 @@ export const GlobalContext = ({ children }) => {
           const { url, options } = POKEMON_GET(pokemon.name);
           const response = await fetch(url, options);
           const json = await response.json();
-          console.log(json);
+
           const types = json.types.map((typeInfo) => typeInfo.type.name);
 
           return {
@@ -110,10 +108,12 @@ export const GlobalContext = ({ children }) => {
         }),
       );
       setPokemonInfo(obtainedPokemonInfo);
-      console.log('tipos', pokemonInfo);
     } catch (error) {
       console.log('Fetch Error:', error);
+    } finally {
+      setLoading(false);
     }
+    console.log(loading);
   }
 
   return (
