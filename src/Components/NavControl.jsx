@@ -18,11 +18,11 @@ const NavControl = ({ setValue, value }) => {
 
   return (
     <div className={styles.container}>
-      {value > 10 ? (
+      {value > 1 ? (
         <button
           className={styles.voltar}
           onClick={() => {
-            setValue(value - 20);
+            setValue(value - 1);
             setCurrentValue(currentValue + 20);
           }}
         ></button>
@@ -33,7 +33,7 @@ const NavControl = ({ setValue, value }) => {
         <button
           className={styles.avancar}
           onClick={() => {
-            setValue(value + 20);
+            setValue(value + 1);
             setCurrentValue(currentValue + 20);
           }}
         ></button>

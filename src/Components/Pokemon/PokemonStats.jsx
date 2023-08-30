@@ -6,7 +6,7 @@ const PokemonStats = ({ data }) => {
   return (
     <ul>
       {data.map((stat) => (
-        <li className={styles.stats}>
+        <li key={stat.stat.name} className={styles.stats}>
           <span>{stat.stat.name}</span>
           <Progress completed={stat.base_stat.toString()} />
         </li>
