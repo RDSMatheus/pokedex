@@ -1,0 +1,13 @@
+.notFound{
+  display: grid;
+  place-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  height: calc(100vh - 4rem);
+  font-size: 8rem;
+  font-family: var(--font-1);
+}
+
+.p{
+  font-size: 2rem;
+}

@@ -7,10 +7,13 @@ import styles from './PokemonProfile.module.css';
 import { useParams } from 'react-router-dom';
 import Head from '../Head';
 import Loading from '../Loading';
+import NotFound from '../NotFound';
 
 const PokemonProfile = () => {
-  const { pokemon, loading, getPokemon, TypeSvg } = React.useContext(Context);
+  const { pokemon, loading, getPokemon, TypeSvg, error } =
+    React.useContext(Context);
   const { id } = useParams();
+  console.log(id);
 
   React.useEffect(() => {
     if (id) {
@@ -24,6 +27,7 @@ const PokemonProfile = () => {
         <Loading />
       </div>
     );
+  if (error) return <NotFound />;
   if (pokemon)
     return (
       <>

@@ -27,6 +27,7 @@ export const GlobalContext = ({ children }) => {
   const [pokemonList, setPokemonList] = React.useState([]);
   const [pokemonPic, setPokemonPic] = React.useState([]);
   const [pokemonInfo, setPokemonInfo] = React.useState([]);
+  const [error, setError] = React.useState(false);
 
   const TypeSvg = {
     normal: { type: normal, color: '#A1A59F' },
@@ -60,7 +61,7 @@ export const GlobalContext = ({ children }) => {
       const json = await response.json();
       setPokemon(json);
     } catch (error) {
-      console.log('Fetch Error:', error);
+      setError(true);
     }
   }
 
@@ -127,6 +128,7 @@ export const GlobalContext = ({ children }) => {
         loading,
         pokemonInfo,
         TypeSvg,
+        error,
       }}
     >
       {children}

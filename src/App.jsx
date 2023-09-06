@@ -7,6 +7,7 @@ import { GlobalContext } from './Context';
 import PokemonProfile from './Components/Pokemon/PokemonProfile';
 import Footer from './Components/Footer';
 import ScrollToTop from './Components/ScrollToTop';
+import NotFound from './Components/NotFound';
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="profile/:id" element={<PokemonProfile />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="profile/*" element={<NotFound />} />
           </Routes>
           <Footer />
         </GlobalContext>
